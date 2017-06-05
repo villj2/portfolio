@@ -2358,7 +2358,7 @@ function avada_dynamic_css_array( $original_css = array() ) {
 		} elseif ( 'right' === esc_attr( Avada()->settings->get( 'menu_text_align' ) ) ) {
 			$wpml_text_align = ( is_rtl() ) ? 'flex-start' : 'flex-end';
 		}
-		$css['global']['.wpml-ls-item .menu-text']['justify-content'] = $wpml_text_align;
+		$css['global']['#side-header .fusion-main-menu .wpml-ls-item > a, #side-header .fusion-main-menu .wpml-ls-item .menu-text']['justify-content'] = $wpml_text_align;
 	}
 
 	$elements = array(
@@ -4830,7 +4830,8 @@ function avada_dynamic_css_array( $original_css = array() ) {
 			$css[ $mobile_menu_media_query ]['.fusion-mobile-nav-holder li.fusion-mobile-nav-item .wpml-ls-item a::before']['display'] = 'none';
 			$elements = array(
 				'.fusion-mobile-nav-holder .wpml-ls-item .menu-text',
-				'.wpml-ls-item .menu-text, .wpml-ls-item .sub-menu a > span > span',
+				'.wpml-ls-item .menu-text, .wpml-ls-item .sub-menu a > span',
+				'.fusion-mobile-nav-holder .wpml-ls-item > a',
 			);
 			$wpml_mobile_text_align = 'center';
 			if ( 'left' === esc_attr( Avada()->settings->get( 'mobile_menu_text_align' ) ) ) {

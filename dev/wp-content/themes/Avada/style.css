@@ -9,3 +9,7 @@ License: Themeforest Split Licence
 License URI: -
 Text Domain: Avada
 */
+
+.icon-head-of-goat:before {
+    content: "head-of-goat";
+}

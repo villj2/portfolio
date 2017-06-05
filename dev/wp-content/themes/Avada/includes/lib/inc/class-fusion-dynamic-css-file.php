@@ -39,6 +39,11 @@ class Fusion_Dynamic_CSS_File {
 		$this->dynamic_css = $dynamic_css;
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_dynamic_css' ), 11 );
 
+		// Make sure file mode dynamic CSS is not created in backend.
+		if ( is_admin() ) {
+			return;
+		}
+
 		$needs_update = $this->dynamic_css->needs_update();
 
 		// No need to proceed any further if there's no need to update the CSS

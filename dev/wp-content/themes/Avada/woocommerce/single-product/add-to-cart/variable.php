@@ -12,7 +12,7 @@
  * @see 	http://docs.woothemes.com/document/template-structure/
  * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 2.5.0
+ * @version 3.0.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -56,7 +56,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 						<div class="single_variation_wrap">
 							<div class="single_variation"></div>
 						</div>
-						<?php echo end( $attribute_keys ) === $attribute_name ? '<a class="reset_variations" href="#">' . esc_html__( 'Clear selection', 'Avada' ) . '</a>' : ''; ?>
+						<?php echo end( $attribute_keys ) === $attribute_name ? apply_filters( 'woocommerce_reset_variations_link', '<a class="reset_variations" href="#">' . esc_html__( 'Clear selection', 'Avada' ) . '</a>' ) : ''; ?>
 						</div>
 					</td>
 				</tr>

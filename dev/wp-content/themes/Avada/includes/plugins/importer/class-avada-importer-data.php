@@ -103,7 +103,7 @@ class Avada_Importer_Data {
 
 		$demos = get_transient( 'avada_demos' );
 		// Reset demos if reset_transient=1.
-		if ( isset( $_GET['reset_transient'] ) && '1' == $_GET['reset_transient'] ) {
+		if ( isset( $_GET['reset_transient'] ) && '1' === $_GET['reset_transient'] ) {
 			$demos = false;
 		}
 		// If the transient does not exist or we've reset it, continue to get the JSON.
@@ -208,7 +208,13 @@ class Avada_Importer_Data {
 
 		// Replace placeholders.
 		$home_url = untrailingslashit( get_home_url() );
-		$demo     = str_replace( '_', '-', $this->demo );
+
+		// In 'classic' demo case 'avada-xml' should be used for replacements.
+		$demo = $this->demo;
+		if ( 'classic' === $demo ) {
+			$demo = 'avada-xml';
+		}
+		$demo = str_replace( '_', '-', $demo );
 
 		// Replace URLs.
 		$xml_content = str_replace(
