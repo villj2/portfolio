@@ -630,6 +630,15 @@ jQuery( document ).ready( function() {
 		jQuery( this ).css( 'overflow', '' );
 	});
 
+	// Accessibility dropdowns.
+	jQuery( 'a' ).on( 'focus', function( e ) {
+		jQuery( '.fusion-active-link' ).removeClass( 'fusion-active-link' );
+		if ( jQuery( this ).parents( '.fusion-dropdown-menu, .fusion-main-menu-cart, .fusion-megamenu-menu' ).length ) {
+			jQuery( this ).parents( 'li' ).addClass( 'fusion-active-link' );
+			jQuery( '.fusion-main-menu' ).css( 'overflow', 'visible' );
+		}
+	});
+
 	// Search icon show/hide.
 	jQuery( document ).click( function() {
 		jQuery( '.fusion-main-menu-search .fusion-custom-menu-item-contents' ).hide();

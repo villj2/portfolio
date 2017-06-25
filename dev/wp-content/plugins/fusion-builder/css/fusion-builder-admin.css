@@ -120,7 +120,7 @@
   margin-bottom: 30px;
   margin-right: 4.999999999%;
   position: relative;
-  width: 29.95%;
+  min-width: 29.95%;
 }
 .fusion-builder-wrap .three-col .col .title {
   font-size: 1em;
